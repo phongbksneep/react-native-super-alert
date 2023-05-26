@@ -70,7 +70,12 @@ const styles = StyleSheet.create({
     color: '#fff'
   },
 
-
+  icon: {
+    zIndex: 9999,
+    position: 'absolute',
+    right: 5,
+    top: 5,
+  },
 });
 
 export default styles;
