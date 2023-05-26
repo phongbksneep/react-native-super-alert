@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Animated, Text, TouchableOpacity, Modal, View, Dimensions } from 'react-native';
+import { Animated, Text, TouchableOpacity, Modal, View, Dimensions, Image } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import styles from "./styles";
@@ -144,6 +144,10 @@ export default (props) => {
                             size={20}
                         />
                     }
+                    <Image
+                        style={styles.imgCircle}
+                        source={require('./icon_button.png')}
+                    />
 
                 </Animated.View>
 
