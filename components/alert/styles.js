@@ -76,6 +76,13 @@ const styles = StyleSheet.create({
     right: 5,
     top: 5,
   },
+  imgCircle: {
+    width: 50,
+    height: 50,
+    position: 'absolute',
+    left: 110,
+    top: -50,
+  },
 });
 
 export default styles;
