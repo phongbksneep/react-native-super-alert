@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Animated, Text, TouchableOpacity, Modal, View, Dimensions } from 'react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import styles from "./styles";
 
@@ -16,7 +17,7 @@ const SUPPORTED_ORIENTATIONS = [
 
 export default (props) => {
     const { isOpen, close, confirm, cancel, title, message, settings, customStyle } = props;
-    const { type, textConfirm, textCancel, useNativeDriver, position } = props.settings;
+    const { type, textConfirm, textCancel, useNativeDriver, position, enableClose } = props.settings;
     const [visible, setVisible] = useState(isOpen)
 
     const springValue = new Animated.Value(0);
@@ -108,6 +109,9 @@ export default (props) => {
         >
             <TouchableOpacity
                 activeOpacity={1}
+                onPress={() => {
+                    enableClose && close()
+                }}
                 style={[styles.BackgroundMask,
                 {
                     justifyContent: position ? justifyContent : 'center',
@@ -131,7 +135,18 @@ export default (props) => {
                             <Text style={[styles.textButton, styles.textButtonConfirm, customStyle ? customStyle.textButtonConfirm : null]}>{textConfirm ? textConfirm : 'OK'}</Text>
                         </TouchableOpacity>
                     </View>
+                    {
+                        enableClose && <FontAwesome
+                            onPress={close}
+                            style={styles.icon}
+                            name="close"
+                            color={'red'}
+                            size={20}
+                        />
+                    }
+
                 </Animated.View>
+
             </TouchableOpacity>
         </Modal>
     );
